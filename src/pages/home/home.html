@@ -1,14 +1,24 @@
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      OCR FORD
     </ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+ 
+<ion-content padding> 
+  <button ion-button full (click)="selectSource()">Selecione a Imagem</button>
+  <button ion-button full (click)="recognizeImage()" [disabled]="!selectedImage">Aplicar OCR</button>
+ 
+  <img [src]="selectedImage" *ngIf="selectedImage">
+ 
+  <ion-card *ngIf="imageText">
+    <ion-card-header>
+      Image Text
+    </ion-card-header>
+    <ion-card-content>
+      {{ imageText }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
